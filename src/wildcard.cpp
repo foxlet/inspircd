@@ -102,9 +102,11 @@ bool InspIRCd::MatchCIDR(const char* str, const char* mask, unsigned const char*
 {
 	if (irc::sockets::MatchCIDR(str, mask, true))
 		return true;
+	else
+	    return false;
 
-	// Fall back to regular match
-	return InspIRCd::Match(str, mask, map);
+	// We no longer fall back to a reg match.
+	// return InspIRCd::Match(str, mask, map);
 }
 
 bool InspIRCd::MatchMask(const std::string& masks, const std::string& hostname, const std::string& ipaddr)
